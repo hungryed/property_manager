@@ -8,8 +8,8 @@ describe Building do
   it { should_not have_valid(:city).when(*blanks) }
 
   it { should validate_presence_of :state }
-  it { should have_valid(:state).when('MA', 'NC', 'CA') }
-  it { should_not have_valid(:state).when(*blanks, 'ZZ', 'JIM', 'T', 'Tennessee')}
+  it { should have_valid(:state).when('Massachusetts', 'North Carolina', 'California') }
+  it { should_not have_valid(:state).when(*blanks, 'ZZ', 'JIM', 'T', 'four')}
 
   it { should validate_presence_of :address }
   it { should have_valid(:address).when('The Moon', 'Towel St.') }

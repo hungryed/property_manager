@@ -2,7 +2,20 @@ class BuildingsController < ApplicationController
 
   def new
     @building = Building.new
-    @states = @building.only_us_states
   end
 
+  def create
+    @building = Building.new(building_params)
+
+    if @building.save
+      redirect_to root_path, notice: 'Building created successfully'
+    else
+
+    end
+  end
+
+  protected
+  def building_params
+    params.require(:building).permit(:address, :state, :city, :postal_code, :description)
+  end
 end

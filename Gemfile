@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'simple_form'
 gem 'validates_email_format_of'
-gem 'geographer'
 gem 'carmen-rails'
 
 group :doc do

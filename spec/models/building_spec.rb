@@ -3,6 +3,9 @@ require 'spec_helper'
 describe Building do
   let(:blanks) { [nil, ''] }
 
+  it { should belong_to :owner }
+  it { should have_valid(:owner).when(Owner.new)}
+
   it { should validate_presence_of :city }
   it { should have_valid(:city).when('Boston', 'Winston-Salem') }
   it { should_not have_valid(:city).when(*blanks) }

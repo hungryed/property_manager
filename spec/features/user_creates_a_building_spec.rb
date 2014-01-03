@@ -10,7 +10,7 @@ feature 'user creates a building spec' do
     select 'Wisconsin', from: 'State'
     fill_in 'Postal Code', with: '27106'
     fill_in 'Description', with: 'Brick'
-    select owner.name, from: 'Owner'
+    select "#{owner.first_name} #{owner.last_name}", from: 'Owner'
     click_on 'Create Building'
 
     expect(page).to have_content 'Create New Building'

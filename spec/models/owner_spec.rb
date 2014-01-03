@@ -17,4 +17,6 @@ describe Owner do
 
   it { should have_valid(:company).when(*blanks, 'Motorola', 'Company') }
 
+  it { should have_many :buildings }
+
 end

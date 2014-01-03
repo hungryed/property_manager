@@ -4,5 +4,6 @@
   <%= f.input :state, collection: States.list %>
   <%= f.input :postal_code, label: 'Postal Code' %>
   <%= f.input :description %>
+  <%= f.input :owner, collection: Owner.all %>
   <%= f.button :submit %>
 <% end %>

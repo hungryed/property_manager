@@ -4,6 +4,7 @@ feature 'user creates a building spec' do
   scenario 'user submits valid information' do
     visit root_path
     click_link 'Create New Building'
+    save_and_open_page
     fill_in 'Address', with: '200 Moon St.'
     fill_in 'City', with: 'Crater'
     select 'MA', from: 'State'

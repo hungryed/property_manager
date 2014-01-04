@@ -10,7 +10,7 @@ class BuildingsController < ApplicationController
     if @building.save
       redirect_to root_path, notice: 'Building created successfully'
     else
-
+      render :new
     end
   end
 

@@ -2,6 +2,7 @@ PropertyManagement::Application.routes.draw do
   resources :pages, only: :index
   root 'pages#index'
   resources :buildings
+  resources :owners
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

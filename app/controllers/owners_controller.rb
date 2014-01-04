@@ -12,7 +12,7 @@ class OwnersController < ApplicationController
     if @owner.save
       redirect_to root_path, notice: 'Owner created successfully'
     else
-
+      render :new
     end
   end
 

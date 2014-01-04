@@ -22,15 +22,9 @@ feature 'user creates a building spec' do
     click_link 'Create New Building'
     click_on 'Create Building'
 
-    expect_presence_error_for(:address)
-    expect_presence_error_for(:city)
-    expect_presence_error_for(:state)
-    expect_presence_error_for(:postal_code)
-  end
-end
-
-def expect_presence_error_for(attribute)
-  within ".input.building_#{attribute.to_s}" do
-    have_content "can't be blank"
+    expect_presence_error_for('building', :address)
+    expect_presence_error_for('building', :city)
+    expect_presence_error_for('building', :state)
+    expect_presence_error_for('building', :postal_code)
   end
 end

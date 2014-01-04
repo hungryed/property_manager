@@ -5,6 +5,7 @@ feature 'user creates a building spec' do
     owner = FactoryGirl.create(:owner)
     visit root_path
     click_link 'Create New Building'
+    save_and_open_page
     fill_in 'Address', with: '200 Moon St.'
     fill_in 'City', with: 'Crater'
     select 'Wisconsin', from: 'State'

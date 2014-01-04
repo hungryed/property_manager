@@ -1,5 +1,9 @@
 class OwnersController < ApplicationController
 
+  def index
+    @owners = Owner.all
+  end
+
   def new
     @owner = Owner.new
   end
@@ -13,6 +17,20 @@ class OwnersController < ApplicationController
       redirect_to root_path, notice: 'Owner created successfully'
     else
       render :new
+    end
+  end
+
+  def show
+    @owner = Owner.find(params[:id])
+  end
+
+  def destroy
+    @owner = Owner.find(params[:id])
+
+    if @owner.destroy
+      redirect_to owners_path, notice: 'Owner removed successfully'
+    else
+      redirect_to owners_path, notice: 'Owner not removed'
     end
   end
 

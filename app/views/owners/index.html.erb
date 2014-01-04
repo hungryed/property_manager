@@ -1,0 +1,4 @@
+<p>Owners List</p>
+<% @owners.each do |owner| %>
+  <%= link_to "#{owner.first_name} #{owner.last_name}", owner_path(owner) %>
+<% end %>

@@ -17,6 +17,16 @@ describe Owner do
 
   it { should have_valid(:company).when(*blanks, 'Motorola', 'Company') }
 
-  it { should have_many :buildings }
+  it { should have_many(:buildings).dependent(:nullify) }
 
+  it "should remove owner from building if owner is deleted" do
+    owner = FactoryGirl.create(:owner)
+    building = FactoryGirl.create(:building)
+    building.owner_id = owner.id
+    building.save
+    expect(building.owner_id).to eq(owner.id)
+    owner.destroy
+    building = Building.find(building)
+    expect(building.owner_id).to eql(nil)
+  end
 end
